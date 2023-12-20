@@ -1,6 +1,7 @@
 return {
   "nvim-treesitter/nvim-treesitter-textobjects",
   lazy = true,
+  build = ":TSUpdate",
   config = function()
     require("nvim-treesitter.configs").setup({
       textobjects = {
@@ -72,7 +73,7 @@ return {
           },
           goto_next_end = {
             ["]F"] = { query = "@call.outer", desc = "Next function call end" },
-            ["]M"] = { query = "@function.outer", desc = "Next method/function def end" },
+            ["]M"] = { query = ("@function.outer"), desc = "Next method/function def end" },
             ["]C"] = { query = "@class.outer", desc = "Next class end" },
             ["]I"] = { query = "@conditional.outer", desc = "Next conditional end" },
             ["]L"] = { query = "@loop.outer", desc = "Next loop end" },
